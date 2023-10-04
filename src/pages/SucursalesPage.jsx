@@ -1,0 +1,51 @@
+import { useFetch } from "../hooks/useFetch"
+
+const URL_GET_ALL_SUCURSALES = 'https://localhost:7219/api/Sucursales/getSucursales'
+
+export const SucursalesPage = () => {
+
+  const { data, error, loading } = useFetch(URL_GET_ALL_SUCURSALES)
+
+  return (
+    <div className="container">
+      <div className="container flex">
+        <h2 className="h2">Listado de Sucursales</h2>
+        <button className="btn-NvoEmp">Nueva Sucursal</button>
+      </div>
+      {loading
+        ? <h4 className="cargando">Cargando...</h4>
+        : <table className="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>              
+              <th scope="col">Ciudad de Ubicación</th>
+              <th scope="col">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            {error ? console.log(error)
+              : data.map(Sucur => {
+                return (
+                  <tr key={Sucur.id}>
+                    <td>#</td>
+                    <td>{Sucur.nombre}</td>                    
+                    <td>{Sucur.ciudad.nombre}</td>                    
+                    <td>
+                      <button
+                        className="bg-primary"
+                      >Actualizar</button>
+                      <button
+                        className="bg-danger"
+                      >Borrar</button>
+                    </td>
+                  </tr>
+                )
+              })
+            }
+          </tbody>
+        </table>
+      }
+    </div>
+  )
+}
