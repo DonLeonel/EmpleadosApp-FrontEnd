@@ -1,0 +1,16 @@
+.contSubtitulo{
+    padding: 20px;
+    text-align: center;
+}
+
+.formNvoEmp{
+   display: flex; 
+   flex-direction: column;
+   max-width: 800px;
+   margin: 0 auto;
+   gap: 3rem;
+
+   border: 2px solid;
+   border-radius: 10px;
+   padding: 30px;
+}

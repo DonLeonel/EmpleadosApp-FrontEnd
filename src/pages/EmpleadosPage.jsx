@@ -1,5 +1,4 @@
 import { useFetch } from "../hooks/useFetch"
-import '../styles/empleados.css'
 
 const URL_GET_ALL_EMPLEADOS = 'https://localhost:7219/api/Empleados/getAll'
 
@@ -9,12 +8,12 @@ export const EmpleadosPage = () => {
 
     return (
         <div className="container">
-            <div className="container flex">
-                <h2 className="h2">Listado de Empleados</h2>
-                <button className="btn-NvoEmp">Nuevo Empleado</button>
+            <div className='headerFlex'>
+                <h2 className="subtitulosPage">Listado de empleados</h2>
+                <a href="/registroEmp" className="newEmpSuc">Nuevo Empleado</a>
             </div>
             {loading
-                ? <h4 className="cargando">Cargando...</h4>
+                ? <h4 className='isLoading'>Cargando...</h4>
                 : <table className="table table-dark">
                     <thead>
                         <tr>

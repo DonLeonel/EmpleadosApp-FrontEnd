@@ -14,10 +14,10 @@ export const AppRouter = () => {
                     <Route path="/sucursales" element={<SucursalesPage />} />
                     <Route path="/registroEmp" element={<NvoEmpleadoPage />} />
                     <Route path="/registroSuc" element={<NvaSucursalPage />} />
-                    <Route path="/registrarse" element={<RegistroPage />} />
+                    {/* <Route path="/registrarse" element={<RegistroPage />} />
                     <Route path="/ayuda" element={<Ayuda />} />
                     <Route path="/configuracion" element={<Configuracion />} />
-                    <Route path="/*" element={<ErrorPage />} />                    
+                    <Route path="/*" element={<ErrorPage />} />                     */}
                 </Route>
             </Routes>
         </>

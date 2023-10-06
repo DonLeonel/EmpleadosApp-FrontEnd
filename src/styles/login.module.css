@@ -1,0 +1,16 @@
+.contenedor{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border: solid 3px;
+  border-radius: 10px;
+  max-width: 400px;
+  min-width: 230px;
+  padding: 30px;
+  align-items: center;
+  text-align: center;
+  margin: 60px auto;
+  background-color: rgb(204, 204, 204);
+}
+
+

@@ -8,12 +8,12 @@ export const SucursalesPage = () => {
 
   return (
     <div className="container">
-      <div className="container flex">
-        <h2 className="h2">Listado de Sucursales</h2>
-        <button className="btn-NvoEmp">Nueva Sucursal</button>
+      <div className="headerFlex">
+        <h2 className="subtitulosPage">Listado de sucursales</h2>
+        <a href="/registroSuc" className="newEmpSuc">Nueva Sucursal</a>
       </div>
       {loading
-        ? <h4 className="cargando">Cargando...</h4>
+        ? <h4 className="isLoading">Cargando...</h4>
         : <table className="table table-dark">
           <thead>
             <tr>

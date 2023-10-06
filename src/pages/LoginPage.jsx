@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useForm } from '../hooks/useForm'
 import { NavLink, useNavigate } from 'react-router-dom'
+import style from '../styles/login.module.css'
 
 const URL_LOGIN = 'https://localhost:7219/api/Credenciales/log';
 const INITIAL_FORM = { usuario: '', contrasenia: '' }
@@ -20,7 +21,7 @@ export const LoginPage = () => {
         console.log(formState)
         sendDataFetch()
     }
-    
+
     const { usuario, contrasenia } = formState
 
     const sendDataFetch = async () => {
@@ -52,10 +53,11 @@ export const LoginPage = () => {
 
     return (
         <form onSubmit={onSubmit}>
-            <div id='contPrincipal' className='container'>
+            <div className={style.contenedor}>
                 <div className='col-auto'>
-                    <label htmlFor="nombreUsuario"> Ingrese Usuario</label>
+                    <label htmlFor="usuario">Ingrese Usuario</label>
                     <input
+                        id='usuario'
                         className='form-control'
                         type="text"
                         placeholder='usuario'
@@ -66,8 +68,9 @@ export const LoginPage = () => {
                 </div>
                 <br />
                 <div className='col-auto'>
-                    <label htmlFor="contracenia">Ingrese Contraseña</label>
+                    <label htmlFor="contrasenia">Ingrese Contraseña</label>
                     <input
+                        id='contrasenia'
                         className='form-control'
                         type='password'
                         placeholder='contraseña'
@@ -78,7 +81,7 @@ export const LoginPage = () => {
                 </div>
                 <br />
                 <NavLink to='/recuperarPass' className="nav-link active" aria-current="page" href="#">Olvidaste tu Contraseña?</NavLink>
-                <hr />
+                <hr className={style.hr} />
                 <div className='container'>
                     <button className='btn btn-primary'>Ingresar</button>
                 </div>

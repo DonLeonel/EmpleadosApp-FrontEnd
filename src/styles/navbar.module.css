@@ -7,7 +7,7 @@
     left: 0;
 }
 
-.Nav{
+.nav{
     display: flex;
     justify-content: space-between;    
 
@@ -21,17 +21,17 @@
     margin: 0 10px;   
 }
 
-.Nav-link{
+.navLink{
     color: white;
     text-decoration: none;
 }
 
-.Nav-menu {
+.navMenu {
     display: flex;  
     list-style: none;
 }
 
-.Nav-menu-item {
+.navMenuItem {
     font-size: 15px;
     margin: 0 10px;
     line-height: 80px;
@@ -39,18 +39,18 @@
     width: max-content;  
 }
 
-.Nav-menu-link{
+.navMenuLink{
     padding: 8px 4px;
     border-radius: 3px;
 }
 
-.Nav-menu-link:hover,
-.Nav-menu-link_active {
+.navMenuLink:hover,
+.navMenuLinkActive {
     background-color: #034574;
     transition: 0.5s;
 }
 
-.Nav-toggle {
+.navToggle {
     color: white;
     background: none;
     border: none;
@@ -75,7 +75,7 @@
         height: 50px;
     }  
    
-    .Nav-menu {        
+    .navMenu {        
         flex-direction: column; 
         align-items: center;
         background-color: #2c3e50;
@@ -95,29 +95,29 @@
         line-height: 50px;              
     }
     
-    .Nav-menu-item {
+    .navMenuItem {
         line-height: 50px;        
     }
        
-    .Nav-menu-link:hover,
-    .Nav-menu-link_active
+    .navMenuLink:hover,
+    .navMenuLinkActive
     {
         background: none;
         color: #83c5f7;
     }
     
-    .Nav-toggle {
+    .navToggle {
         display: block;
         line-height: 1px;
         font-size: 30px; 
         color: white;       
     }
 
-    .Nav-menu_visible {
+    .navMenuVisible {
         left: 60%;
     }
 
-    .Nav-toggle:focus:not(:focus-visible){
+    .navToggle:focus:not(:focus-visible){
         outline: none;
     }
     

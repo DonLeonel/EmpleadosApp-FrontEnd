@@ -1,15 +1,15 @@
 import { Outlet } from 'react-router-dom';
-import '../styles/navbar.css'
+import style from '../styles/navbar.module.css'
 
-export const NavBarComp = () => {
+export const NavBarComp = () => {  
 
   const mostrarMenu = () => {
-    const navMenu = document.getElementsByClassName('Nav-menu')[0];
-    navMenu.classList.toggle("Nav-menu_visible");
+    const navMenu = document.getElementsByClassName(style.navMenu)[0];
+    navMenu.classList.toggle(style.navMenuVisible);
 
-    const navToggle = document.getElementsByClassName('Nav-toggle')[0]
+    const navToggle = document.getElementsByClassName(style.navToggle)[0]
 
-    if (navMenu.classList.contains('Nav-manu_visible')) {
+    if (navMenu.classList.contains(style.navMenuVisible)) {
 
       navToggle.setAttribute('aria-label', 'Cerrar menú');
     }
@@ -20,32 +20,32 @@ export const NavBarComp = () => {
 
   return (
     <>
-      <header className='header'>
-        <nav className='Nav'>
+      <header className={style.header}>
+        <nav className={style.nav}>
           <div>
-            <a className='logo Nav-link' href="/">Logo</a>
+            <a className={`${style.logo} ${style.navLink}`} href="/">Logo</a>
           </div>
-          <button onClick={mostrarMenu} className='Nav-toggle' aria-label='Abrir menú'>
-            <i class="fa-solid fa-bars"></i>
+          <button onClick={mostrarMenu} className={style.navToggle} aria-label='Abrir menú'>
+            <i className="fa-solid fa-bars"></i>
           </button>
-          <ul className="Nav-menu" >
-            <li className="Nav-menu-item">
-              <a className="Nav-menu-link Nav-link" href="/empleados">Empleados</a>
+          <ul className={style.navMenu} >
+            <li className={style.navMenuItem}>
+              <a className={`${style.navMenuLink} ${style.navLink}`} href="/empleados">Empleados</a>
             </li>
-            <li className="Nav-menu-item">
-              <a className="Nav-menu-link Nav-link" href="/sucursales">Sucursales</a>
+            <li className={style.navMenuItem}>
+              <a className={`${style.navMenuLink} ${style.navLink}`} href="/sucursales">Sucursales</a>
             </li>
-            <li className="Nav-menu-item">
-              <a className="Nav-menu-link Nav-link" href="/ayuda">ayúda</a>
+            <li className={style.navMenuItem}>
+              <a className={`${style.navMenuLink} ${style.navLink}`} href="/ayuda">ayúda</a>
             </li>
-            <li className="Nav-menu-item dropdown">
-              <a className="Nav-link Nav-menu-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                cuenta 
+            <li className={`${style.navMenuItem} ${style.dropdown}`}>
+              <a className={`${style.navMenuLink} ${style.navLink} dropdown-toggle`} role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                cuenta
               </a>
-              <ul className="dropdown-menu contDropM">
-                <li><a className="dropdown-item dropM" href="/login">Iniciar Sección</a></li>
+              <ul className="dropdown-menu">
+                <li><a className="dropdown-item" href="/login">Iniciar Sección</a></li>
                 <li><hr className="dropdown-divider" /></li>
-                <li><a className="dropdown-item dropM" href="/configuracion">Configuración</a></li>
+                <li><a className="dropdown-item" href="/configuracion">Configuración</a></li>
               </ul>
             </li>
           </ul>
