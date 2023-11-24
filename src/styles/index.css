@@ -40,6 +40,18 @@ body{
     font-size: 20px;
 }
 
+.contBtnEnviar{
+   padding: 0 20px;     
+}
+.hr{
+    margin: 0 15px;
+}
+
+.btn{
+    font-size: 15px;
+}
+
+
 .subtitulosPage{ 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 24px;

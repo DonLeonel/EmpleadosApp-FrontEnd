@@ -54,8 +54,8 @@ export const NvaSucursalPage = () => {
             </select>
           </div>
         </div>
-        <div className='row'>          
-            <hr />
+            <hr className='hr'/>
+        <div className='row contBtnEnviar'>          
             <button type="submit" className="btn btn-primary">Enviar</button>          
         </div>
       </form>

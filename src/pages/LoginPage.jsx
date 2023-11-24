@@ -55,7 +55,7 @@ export const LoginPage = () => {
         <form onSubmit={onSubmit}>
             <div className={style.contenedor}>
                 <div className='col-auto'>
-                    <label htmlFor="usuario">Ingrese Usuario</label>
+                    <label className={style.labels} htmlFor="usuario">Ingrese Usuario</label>
                     <input
                         id='usuario'
                         className='form-control'
@@ -68,7 +68,7 @@ export const LoginPage = () => {
                 </div>
                 <br />
                 <div className='col-auto'>
-                    <label htmlFor="contrasenia">Ingrese Contraseña</label>
+                    <label className={style.labels} htmlFor="contrasenia">Ingrese Contraseña</label>
                     <input
                         id='contrasenia'
                         className='form-control'
@@ -80,7 +80,7 @@ export const LoginPage = () => {
                     />
                 </div>
                 <br />
-                <NavLink to='/recuperarPass' className="nav-link active" aria-current="page" href="#">Olvidaste tu Contraseña?</NavLink>
+                <NavLink to='/recuperarPass' className={style.navlink} aria-current="page" href="#">Olvidaste tu Contraseña?</NavLink>
                 <hr className={style.hr} />
                 <div className='container'>
                     <button className='btn btn-primary'>Ingresar</button>

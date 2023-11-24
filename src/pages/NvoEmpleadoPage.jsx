@@ -1,33 +1,49 @@
-import { useFetch } from '../hooks/useFetch'
-import { useForm } from '../hooks/useForm'
-//import { useSendDataFetch } from '../helper/'
+import { useState } from 'react'
+import { useFetch, useForm } from '../hooks/index'
 import style from '../styles/nuevoEmpleado.module.css'
-
 
 const URL_GET_ALL_CIUDADES = 'https://localhost:7219/api/Secundario/getCiudades'
 const URL_GET_ALL_CARGOS = 'https://localhost:7219/api/Secundario/getCargos'
 const URL_SAVE_EMPLEADO = 'https://localhost:7219/api/Empleados/saveEmpleado'
 
-const INITIAL_FORM = { nombre: '', apellido: '', dni: '', sucursal: '', cargo: '' }
+const INITIAL_FORM = { nombre: '', apellido: '', dni: '', sucursalID: '', cargoID: '' }
 
 export const NvoEmpleadoPage = () => {
 
     const { formState, onInputChange } = useForm(INITIAL_FORM)
-
-    const { nombre, apellido, dni, sucursal, cargo } = formState
-
+    const { nombre, apellido, dni, sucursalID, cargoID } = formState
     const { data, error, loading } = useFetch(URL_GET_ALL_CIUDADES)
     const { data: data1, error: error1, loading: loading1 } = useFetch(URL_GET_ALL_CARGOS)
+    //const { submit } = usePostData(URL_SAVE_EMPLEADO, formState)
 
-    const onSubmit = (event) => {
+    const [errorSubmit, setErrorSubmit] = useState(null);
+    const [ok, setOk] = useState(false);
+
+    const handlerSubmit = async (event) => {
         event.preventDefault()
+        submit();
+        ok ? alert("Se guardo con éxito el nuevo Empleado")
+            : console.log(errorSubmit);
+    }
 
-        //const { ok, error } = useSendDataFetch(URL_SAVE_EMPLEADO, formState)
-        if (ok) {
-            alert("Se guardo con exito el nuevo Empleado")
-        }
-        else {
-            console.log(error)
+    const submit = async () => {
+        try {
+            const response = await fetch(URL_SAVE_EMPLEADO, {
+                method: "POST",
+                body: JSON.stringify(formState),
+                "Content-Type": "application/json",
+            });
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data)
+                // setOk(true)
+                // setErrorSubmit(null)
+            } else {
+                setErrorSubmit(new Error(response.statusText));
+            }
+
+        } catch (err) {
+            setErrorSubmit(err);
         }
     }
 
@@ -36,7 +52,7 @@ export const NvoEmpleadoPage = () => {
             <div className={style.contSubtitulo}>
                 <h2 className='subtitulosPage'>Nuevo Empleado</h2>
             </div>
-            <form className={style.formNvoEmp} onSubmit={onSubmit}>
+            <form className={style.formNvoEmp} onSubmit={handlerSubmit}>
                 <div className='row'>
                     <div className="col-4 md-3">
                         <label htmlFor="nombre" className="form-label">Nombre</label>
@@ -73,41 +89,41 @@ export const NvoEmpleadoPage = () => {
                 <div className='row'>
                     <div className="col-4 md-3">
                         <label htmlFor="sucursal">Sucursal</label>
-                        <select
+                        <select                                                        
                             className="form-select"
                             aria-label="Default select example"
-                            value={sucursal}
+                            value={sucursalID}
                             onChange={onInputChange}
-                            name='sucursal'
+                            name='sucursalID'
                         >
-                            <option selected>seleccione</option>
-                            {loading ? <option key={0} selected>Cargando...</option>
+                            <option key={2} selected>seleccione</option>
+                            {loading ? <option key={0} >Cargando...</option>
                                 : error ? <option key={0}>Opciones no disponibles</option>
                                     : data.map(suc =>
-                                        <option key={suc.id} value={suc.id}>{suc.nombre}</option>
+                                        <option key={suc.sucursalID} value={suc.sucursalID}>{suc.nombre}</option>
                                     )}
                         </select>
                     </div>
                     <div className="col-4 md-3">
                         <label htmlFor="cargo">Cargo</label>
-                        <select
+                        <select                            
                             className="form-select"
                             aria-label="Default select example"
-                            value={cargo}
+                            value={cargoID}
                             onChange={onInputChange}
-                            name='cargo'
+                            name='cargoID'
                         >
-                            <option selected>seleccione</option>
-                            {loading1 ? <option key={0} selected>Cargando...</option>
-                                : error ? <option key={0}>Opciones no disponibles</option>
+                            <option key={1} selected>seleccione</option>
+                            {loading1 ? <option key={8} >Cargando...</option>
+                                : error1 ? <option key={0}>Opciones no disponibles</option>
                                     : data1.map(cargo =>
-                                        <option key={cargo.id} value={cargo.id}>{cargo.nombre}</option>
+                                        <option key={cargo.cargoID} value={cargo.cargoID}>{cargo.nombre}</option>
                                     )}
                         </select>
                     </div>
                 </div>
-                <div className='row'>
-                    <hr />
+                <hr className='hr' />
+                <div className='row contBtnEnviar'>
                     <button type="submit" className="btn btn-primary">Enviar</button>
                 </div>
             </form>

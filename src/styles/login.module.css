@@ -13,4 +13,13 @@
   background-color: rgb(204, 204, 204);
 }
 
+.labels{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
+  padding: 10px 0;
+}
+
+.navlink{
+  text-decoration: none;  
+}
 

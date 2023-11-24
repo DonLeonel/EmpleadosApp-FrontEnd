@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import style from '../styles/navbar.module.css'
 
-export const NavBarComp = () => {  
+export const NavBarComp = () => {
 
   const mostrarMenu = () => {
     const navMenu = document.getElementsByClassName(style.navMenu)[0];
@@ -42,10 +42,10 @@ export const NavBarComp = () => {
               <a className={`${style.navMenuLink} ${style.navLink} dropdown-toggle`} role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 cuenta
               </a>
-              <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="/login">Iniciar Sección</a></li>
+              <ul className='dropdown-menu'>
+                <li><a className={`${style.anchor} dropdown-item`} href="/login">Iniciar Sesión</a></li>
                 <li><hr className="dropdown-divider" /></li>
-                <li><a className="dropdown-item" href="/configuracion">Configuración</a></li>
+                <li><a className={`${style.anchor} dropdown-item`} href="/configuracion">Configuración</a></li>
               </ul>
             </li>
           </ul>

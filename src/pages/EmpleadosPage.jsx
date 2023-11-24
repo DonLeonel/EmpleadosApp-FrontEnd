@@ -32,7 +32,7 @@ export const EmpleadosPage = () => {
                         {error ? console.log(error)
                             : data.map(empl => {
                                 return (
-                                    <tr key={empl.id}>
+                                    <tr key={empl.empleadoID}>
                                         <td>#</td>
                                         <td>{empl.nombre}</td>
                                         <td>{empl.apellido}</td>
